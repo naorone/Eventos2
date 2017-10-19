@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+        window.onload= add;
+
+        function add()
+        {
+
+            let parraf= document.getElementsByTagName("p");
+
+                parraf[0].addEventListener("click", cambiarColor);
+                parraf[0].addEventListener("dblclick", cambiarColor);
+        }
+
+
+        function cambiarColor(event)
+        {
+            let evento = event.type;
+            if(evento === "click")
+            {
+                this.style.color="red";
+            }else if (evento === "dblclick")
+            {
+                this.style.color="blue";
+            }
+
+        }
+
+    </script>
+
+</head>
+<body>
+    <p>Este es el párrafo</p>
+</body>
+</html>
+
+<!-- 1. Crear una página la cual cambia a colores distintos a un párrafo, según hagamos sobre él un click o un doble click.
+Para lograrlo tanto para el evento click y doble click llamaremos a la misma función.
+Y según el tipo de evento cambiar de color al párrafo.
+-->
