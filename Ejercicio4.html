@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<h<html>
 <head>
     <style>
         .master {height:270px;width:800px;padding:10px;border:2px solid red;
@@ -23,13 +23,10 @@
 
         }
 
-        function pintarAmarillo()
+        function pintarAmarillo(event)
         {
-
-            if (window.getComputedStyle(this,null).getPropertyValue("border-Bottom-Color")!="rgb(255, 0, 0)")
-            {
                 this.style.backgroundColor="yellow";
-            }
+                event.stopPropagation();
         }
 
 
@@ -46,7 +43,3 @@
 </div>
 </body>
 </html>
-
-<!-- 3. Completa el código siguiente para que cuando hagamos click en algun elemento se ponga de color amarillo
- todo elemento que que se encuentre por encima de este, simpre y cuando no tenga un limite rojo.
--->
