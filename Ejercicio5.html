@@ -7,16 +7,36 @@
 
         window.onload= addEv;
         let cont = 0;
+        let codigoKey = document.createElement("p");
+        let content = document.createTextNode("");
+        codigoKey.appendChild(content);
+
         function addEv()
         {
             let area = document.getElementById("descripcion");
             let letras = document.getElementById("letras");
+
             letras.textContent="0/14 caracteres";
                 area.addEventListener("keypress", contar);
                 area.addEventListener("keydown", parar);
                 area.addEventListener("keypress", restar);
+                area.addEventListener("keypress", codigo);
+        }
+
+        function codigo(event)
+        {
+            let valor = event.keyCode;
+            let c =document.createTextNode(valor);
+            codigoKey.appendChild(c);
+            document.body.appendChild(codigoKey);
+            //
+
+
+
 
         }
+
+
 
         function parar(event)
         {
@@ -44,6 +64,7 @@
 <div align="center">
     <textarea id="descripcion" cols="40" rows="3" name="descripcion"> </textarea></br>
     <span id="letras">14/14 caracteres</span>
+
 </div>
 </body>
 </html>
