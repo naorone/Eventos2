@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .centrar
+
+        {
+            position: absolute;
+            top:50%;
+            left:50%;
+            width:200px;
+            margin-left:-100px;
+            height:200px;
+            margin-top:-100px;
+            border:1px solid #808080;
+            padding:5px;
+            background-color: yellow;
+        }
+
+    </style>
+
+
+    <script>
+        window.onload= addEv;
+        function addEv()
+        {
+
+            document.body.addEventListener("mousedown", pulsar);
+            document.body.addEventListener("mouseup", soltar);
+            //document.body.addEventListener("mousemove", mover);
+        }
+
+        function pulsar()
+        {
+            let cuadrado = document.getElementById("cuadrado");
+            cuadrado.style.backgroundColor= "blue";
+
+
+        }
+        function soltar()
+        {
+            let cuadrado = document.getElementById("cuadrado");
+            cuadrado.style.backgroundColor= "yellow";
+        }
+
+
+    </script>
+
+
+</head>
+<body>
+<div id="cuadrado" class="centrar"></div>
+</body>
+</html>
+<!--9. Crea una pagina en la que aparecera un cuadrado de color amarillo en el centro de la pantalla.
+Este cuadrado se debera desplazar  cuando hagamos click encima de él  y se detendra cuando soltemos el boton.
+Cuando se este desplazando el cuadrado estara de color azul. -->
