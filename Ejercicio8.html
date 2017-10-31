@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .centrar
+
+        {
+            position: absolute;
+            top:50%;
+            left:50%;
+            width:200px;
+            margin-left:-100px;
+            height:200px;
+            margin-top:-100px;
+            border:1px solid #808080;
+            padding:5px;
+        }
+
+    </style>
+
+
+    <script>
+        window.onload= addEv;
+        function addEv()
+        {
+
+            document.body.addEventListener("keydown",mover);
+        }
+
+        function mover(event)
+        {
+            let cuadrado= document.getElementById("cuadrado");
+            let stl = window.getComputedStyle(cuadrado);
+            if(event.keyCode===37)
+            {
+                let mLeft =parseInt(stl.getPropertyValue("margin-left"));
+                cuadrado.style.marginLeft= mLeft- 10+"px";
+            }else if(event.keyCode===38)
+            {
+                let mTop = parseInt(stl.getPropertyValue("margin-top"));
+                cuadrado.style.marginTop= mTop - 10 +"px";
+            }else if(event.keyCode===39)
+            {
+                let mRight = parseInt(stl.getPropertyValue("margin-right"));
+                cuadrado.style.marginRight= mRight - 10 + "px";
+            }
+
+
+
+
+
+
+        }
+    </script>
+
+</head>
+<body>
+
+    <div id="cuadrado" class="centrar"></div>
+
+</body>
+</html>
+<!--8. Crea una pagina en la que aparecera un cuadrado de color amarillo en el centro de la pantalla.
+ Este cuadrado se debera desplazar 10px hacia la direccion en la que hayamos pulsado las flechas de desplazamiento. -->

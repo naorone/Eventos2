@@ -9,7 +9,7 @@
         let ventana;
         let inac;
         window.onload= crearBoton;
-        
+
         function crearBoton()
         {
 
@@ -18,12 +18,13 @@
             boton.value= "Crear Ventana";
             boton.onclick=crearVentana;
             document.body.appendChild(boton);
+
         }
 
         function crearVentana()
         {
             ventana = window.open("","",'width=200px,height=200px');
-            ventana.addEventListener("mousehover",inactividad);
+            ventana.addEventListener("mouseover",inactividad);
             ventana.addEventListener("mousemove",inactividad);
             ventana.addEventListener("click",inactividad);
             inac = setTimeout(cerrar, 5000);
