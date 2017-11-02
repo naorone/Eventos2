@@ -25,18 +25,24 @@
 
     <script>
         window.onload= addEv;
+        let sw= false;
         function addEv()
         {
 
             document.body.addEventListener("mousedown", pulsar);
             document.body.addEventListener("mouseup", soltar);
-            //document.body.addEventListener("mousemove", mover);
+            document.body.addEventListener("mousemove", mover);
         }
 
-        function pulsar()
+        function pulsar(event)
         {
+            let cX= event.clientX;
+            let cY= event.clientY;
             let cuadrado = document.getElementById("cuadrado");
             cuadrado.style.backgroundColor= "blue";
+            cuadrado.style.left=cX+"px";
+            cuadrado.style.top=cY+"px";
+            sw=true;
 
 
         }
@@ -44,6 +50,17 @@
         {
             let cuadrado = document.getElementById("cuadrado");
             cuadrado.style.backgroundColor= "yellow";
+            sw=false;
+        }
+        function mover(event)
+        {
+            let cX= event.clientX;
+            let cY= event.clientY;
+            let cuadrado = document.getElementById("cuadrado");
+            if(sw) {
+                cuadrado.style.left = cX + "px";
+                cuadrado.style.top = cY + "px";
+            }
         }
 
 
