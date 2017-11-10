@@ -29,7 +29,8 @@
             {
                 let codigoKey = document.createElement("p");
                 codigoKey.id="codigo";
-                codigoKey.textContent=valor;
+                codigoKey.textContent="Codigo: "+valor;
+                codigoKey.style.textAlign="center";
                 document.body.appendChild(codigoKey);
                 if(esMayus(valor))
                 {
@@ -39,7 +40,7 @@
                 }
             }else{
 
-                code.textContent=valor;
+                code.textContent="Codigo: "+valor;
                 if(esMayus(valor))
                 {
                     document.getElementById("codigo").style.backgroundColor="yellow";
