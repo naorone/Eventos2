@@ -7,9 +7,6 @@
 
         window.onload= addEv;
         let cont = 0;
-        let codigoKey = document.createElement("p");
-        let content = document.createTextNode("");
-        codigoKey.appendChild(content);
 
         function addEv()
         {
@@ -20,24 +17,50 @@
                 area.addEventListener("keypress", contar);
                 area.addEventListener("keydown", parar);
                 area.addEventListener("keypress", restar);
-                area.addEventListener("keyup", codigo);
+                area.addEventListener("keypress", codigo);
         }
 
         function codigo(event)
         {
-            let valor = event.keyCode;
-            let c =document.createTextNode(valor);
-            codigoKey.appendChild(c);
-            document.body.appendChild(codigoKey);
+            let valor = event.keyCode || event.which;
+
+            let code= document.getElementById("codigo");
+            if(code===null)
+            {
+                let codigoKey = document.createElement("p");
+                codigoKey.id="codigo";
+                codigoKey.textContent=valor;
+                document.body.appendChild(codigoKey);
+                if(esMayus(valor))
+                {
+                    document.getElementById("codigo").style.backgroundColor="yellow";
+                }else {
+                    document.getElementById("codigo").style.backgroundColor="white";
+                }
+            }else{
+
+                code.textContent=valor;
+                if(esMayus(valor))
+                {
+                    document.getElementById("codigo").style.backgroundColor="yellow";
+                }else{
+                    document.getElementById("codigo").style.backgroundColor="white";
+                }
+
+            }
 
         }
 
+        function esMayus(keyCode)
+        {
+            let letra = String.fromCharCode(keyCode);
+            return letra.toUpperCase() === letra;
+        }
 
 
         function parar(event)
         {
-            console.log(cont);
-            if(cont == 14)
+            if(cont === 14)
             {
                 event.preventDefault();
             }
@@ -51,6 +74,7 @@
             let letra = document.getElementById("letras");
             letra.textContent=cont+"/14 caracteres";
         }
+
 
 
     </script>
